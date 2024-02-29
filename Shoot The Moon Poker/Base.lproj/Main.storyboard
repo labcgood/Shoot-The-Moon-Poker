@@ -1,24 +1,452 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NaikaiFont-ExtraLight.ttf">
+            <string>NaikaiFont-ExtraLight</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Shoot_The_Moon_Poker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="gameView">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="4zR-C9-Ok1">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="剩餘牌數：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfs-0x-1cz">
+                                <rect key="frame" x="256" y="600" width="75" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="15"/>
+                                <color key="textColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="52" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8l1-9A-A33" userLabel="remainingCards剩牌">
+                                <rect key="frame" x="329" y="600" width="61" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="15"/>
+                                <color key="textColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="玩家" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuF-sP-UZ9">
+                                <rect key="frame" x="39" y="61" width="160" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="35"/>
+                                <color key="textColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="累積金額" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWc-35-Peg">
+                                <rect key="frame" x="207" y="61" width="144" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="35"/>
+                                <color key="textColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="下注金額" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYz-AK-WqL">
+                                <rect key="frame" x="16" y="229" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="30"/>
+                                <color key="textColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="抽牌" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3d-lo-x0q">
+                                <rect key="frame" x="256" y="484" width="32" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="30"/>
+                                <color key="textColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zei-yA-Ogb" userLabel="betAmount下注">
+                                <rect key="frame" x="150" y="228" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="30"/>
+                                <color key="textColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="全抓" translatesAutoresizingMaskIntoConstraints="NO" id="8wt-LR-TPq">
+                                <rect key="frame" x="244" y="97" width="130" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="10" translatesAutoresizingMaskIntoConstraints="NO" id="cpk-EB-fIY">
+                                <rect key="frame" x="23" y="115" width="65" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="100" translatesAutoresizingMaskIntoConstraints="NO" id="hED-Yy-TQX">
+                                <rect key="frame" x="103" y="97" width="130" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPR-gF-YbH">
+                                <rect key="frame" x="244" y="115" width="130" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="全   抓">
+                                    <fontDescription key="titleFontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="plusPotAmountButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ya-25-H8X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKl-tl-fHI">
+                                <rect key="frame" x="256" y="623" width="118" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="重新洗牌" cornerStyle="large">
+                                    <fontDescription key="titleFontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="20"/>
+                                    <color key="baseBackgroundColor" red="0.92941176469999998" green="0.16862745100000001" blue="0.1647058824" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="shuffleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bnq-RH-pWU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vg-IL-p51">
+                                <rect key="frame" x="257" y="200" width="104" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="重新下注" cornerStyle="large">
+                                    <fontDescription key="titleFontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="20"/>
+                                    <color key="baseBackgroundColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="reBetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y8N-dX-G8z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeT-nq-liY">
+                                <rect key="frame" x="257" y="248" width="104" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="不跟" cornerStyle="large">
+                                    <fontDescription key="titleFontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="20"/>
+                                    <color key="baseBackgroundColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="foldButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HWJ-z7-w40"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukK-do-uAL" userLabel="Button10">
+                                <rect key="frame" x="23" y="115" width="65" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="plusTenButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9tU-Wt-8fN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqI-ff-DtG" userLabel="Button100">
+                                <rect key="frame" x="103" y="115" width="130" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="plusHundredButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bBo-BQ-nLT"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="池底" translatesAutoresizingMaskIntoConstraints="NO" id="znm-Qw-kPu">
+                                <rect key="frame" x="89" y="627" width="212" height="217"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="池底金額" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAh-9r-lXi">
+                                <rect key="frame" x="135" y="787" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="30"/>
+                                <color key="textColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylF-9z-Mev" userLabel="potAmount池底">
+                                <rect key="frame" x="0.0" y="719" width="390" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="70"/>
+                                <color key="textColor" red="0.82352941176470584" green="0.074509803921568626" blue="0.070588235294117646" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="card_back" translatesAutoresizingMaskIntoConstraints="NO" id="KnP-hX-A6m">
+                                <rect key="frame" x="284" y="462" width="90" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="card_back" translatesAutoresizingMaskIntoConstraints="NO" id="zxO-wj-K2N" userLabel="firstCard">
+                                <rect key="frame" x="16" y="302" width="90" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="card_back" translatesAutoresizingMaskIntoConstraints="NO" id="c10-tR-EtF" userLabel="secondCard">
+                                <rect key="frame" x="284" y="302" width="90" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="card_back" translatesAutoresizingMaskIntoConstraints="NO" id="lzZ-Au-SYj" userLabel="thirdCard">
+                                <rect key="frame" x="150" y="302" width="90" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeB-Dz-rtA">
+                                <rect key="frame" x="280" y="759" width="110" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.72156862749999995" green="0.36078431370000003" blue="0.21960784310000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="下一位">
+                                    <fontDescription key="titleFontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="nextPlayerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="trf-2W-z3U"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jki-gL-hF0">
+                                <rect key="frame" x="0.0" y="759" width="110" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.72156862749999995" green="0.36078431370000003" blue="0.21960784310000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="結算" cornerStyle="large">
+                                    <fontDescription key="titleFontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="gameSettlementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tfj-d2-ANh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyc-Ye-Pg9">
+                                <rect key="frame" x="23" y="440" width="210" height="223"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="40"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gS-JM-JuG" userLabel="drawCard">
+                                <rect key="frame" x="284" y="460" width="90" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="drawCardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S03-kf-cdI"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tr-J7-oKC">
+                                <rect key="frame" x="133" y="671" width="124" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="玩家再下注" cornerStyle="large">
+                                    <fontDescription key="titleFontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="20"/>
+                                    <color key="baseBackgroundColor" red="0.92941176469999998" green="0.16862745100000001" blue="0.1647058824" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="againButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5oP-Qs-sFa"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="Sn0-7Y-bSs" userLabel="startView">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="MWg-ET-ql5">
+                                        <rect key="frame" x="-3" y="0.0" width="393" height="844"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="遊戲規則" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVB-5H-w6F">
+                                        <rect key="frame" x="145" y="118" width="100" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="玩家人數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNS-QD-5jy">
+                                        <rect key="frame" x="65" y="430" width="104" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                        <color key="textColor" red="0.36078431370000003" green="0.23921568630000001" blue="0.18039215689999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="玩家1" textAlignment="center" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mCe-01-flh">
+                                        <rect key="frame" x="190" y="485" width="135" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.36078431370000003" green="0.23921568630000001" blue="0.18039215689999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="玩家2" textAlignment="center" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bDf-sY-Id9">
+                                        <rect key="frame" x="190" y="545" width="135" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.36078431370000003" green="0.23921568630000001" blue="0.18039215689999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="玩家3" textAlignment="center" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MQS-ze-7yj">
+                                        <rect key="frame" x="190" y="605" width="135" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.36078431370000003" green="0.23921568630000001" blue="0.18039215689999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="玩家4" textAlignment="center" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ls8-tG-ma4">
+                                        <rect key="frame" x="190" y="665" width="135" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.36078431370000003" green="0.23921568630000001" blue="0.18039215689999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="玩家1名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbR-VT-zkD">
+                                        <rect key="frame" x="65" y="490" width="117" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                        <color key="textColor" red="0.36078431370000003" green="0.23921568630000001" blue="0.18039215689999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="玩家2名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaE-fo-FS0">
+                                        <rect key="frame" x="65" y="550" width="117" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                        <color key="textColor" red="0.36078431370000003" green="0.23921568630000001" blue="0.18039215689999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="玩家3名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJ2-3a-Zrs">
+                                        <rect key="frame" x="65" y="610" width="117" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                        <color key="textColor" red="0.36078431370000003" green="0.23921568630000001" blue="0.18039215689999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="玩家4名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kb3-jg-V7M">
+                                        <rect key="frame" x="65" y="670" width="117" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                        <color key="textColor" red="0.36078431370000003" green="0.23921568630000001" blue="0.18039215689999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="射 龍 門" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwY-rv-WkC">
+                                        <rect key="frame" x="95" y="60" width="200" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="50"/>
+                                        <color key="textColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHZ-ZK-eXK">
+                                        <rect key="frame" x="297" y="427" width="28" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="plusButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MdD-G0-zWZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgC-9p-Od7">
+                                        <rect key="frame" x="190" y="427" width="28" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="minus.circle.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="reduceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wHD-fZ-C5W"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jy-Ae-e7c">
+                                        <rect key="frame" x="243" y="434" width="28" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                        <color key="textColor" red="0.36078431370000003" green="0.23921568630000001" blue="0.18039215689999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGv-wQ-2gw">
+                                        <rect key="frame" x="123" y="740" width="144" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="遊戲開始">
+                                            <fontDescription key="titleFontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="30"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="startGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9RJ-Dd-SWj"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yf3-nD-Xhw">
+                                        <rect key="frame" x="30" y="151" width="327" height="268"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">𝄪玩家先抽兩張牌，依據第三張牌與前兩張牌的點數關係決定輸贏；若第三牌點數介於前兩張牌點數之間算贏，否則算輸。
+𝄪如抽中與前兩張牌相同點數(撞柱)則需多付一倍金額。
+𝄪如前兩張牌點數相同，玩家則需選擇往上或下抓，如第三張點數於範圍內則算贏。如撞柱則需付下注金額*3的金額。
+𝄪隨時可跳過玩家或結算遊戲，也隨時可以重新洗牌。
+𝄪開局預設下注金額每人10元，如遊戲中池底獎金歸零時，玩家可選擇再重新下注(同開局金額)。</string>
+                                        <color key="textColor" red="0.1764705882" green="0.14117647059999999" blue="0.14117647059999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NaikaiFont-ExtraLight" family="內海字體" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="hKn-fd-gGn"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6Lk-eR-TAX">
+                                <rect key="frame" x="120" y="352" width="150" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="往下抓"/>
+                                    <segment title="往上抓"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </segmentedControl>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="againButton" destination="1tr-J7-oKC" id="0l1-Yc-Hsb"/>
+                        <outlet property="betAmountLabel" destination="zei-yA-Ogb" id="M9K-Dd-PSv"/>
+                        <outlet property="chooseUpOrDown" destination="6Lk-eR-TAX" id="ATM-6P-sUx"/>
+                        <outlet property="currentCumulativeLabel" destination="nWc-35-Peg" id="kl4-wm-2pK"/>
+                        <outlet property="currentPlayerLabel" destination="PuF-sP-UZ9" id="4fS-8d-W9d"/>
+                        <outlet property="drawCardButton" destination="4gS-JM-JuG" id="3m1-W7-MsL"/>
+                        <outlet property="foldButton" destination="JeT-nq-liY" id="Z6A-kO-H3q"/>
+                        <outlet property="gameView" destination="8bC-Xf-vdC" id="jUy-Pa-L2O"/>
+                        <outlet property="nextPlayerButton" destination="oeB-Dz-rtA" id="N6O-7b-Zjm"/>
+                        <outlet property="playerCountLabel" destination="6Jy-Ae-e7c" id="pel-jx-ovi"/>
+                        <outlet property="plusHundredButton" destination="cqI-ff-DtG" id="3x4-tU-SIN"/>
+                        <outlet property="plusPotAmountButton" destination="sPR-gF-YbH" id="GP9-Wd-G7f"/>
+                        <outlet property="plusTenButton" destination="ukK-do-uAL" id="6gE-SR-3hO"/>
+                        <outlet property="potAmountLabel" destination="ylF-9z-Mev" id="Z7u-9b-eSg"/>
+                        <outlet property="reBetButton" destination="9Vg-IL-p51" id="blu-kv-Zke"/>
+                        <outlet property="remainingCardsLabel" destination="8l1-9A-A33" id="LVw-ba-Xdp"/>
+                        <outlet property="showResultLabel" destination="cyc-Ye-Pg9" id="gNO-SH-uxu"/>
+                        <outlet property="startView" destination="Sn0-7Y-bSs" id="8vf-1u-yyx"/>
+                        <outlet property="suffleButton" destination="vKl-tl-fHI" id="Bqc-6D-iX4"/>
+                        <outletCollection property="resultCards" destination="zxO-wj-K2N" collectionClass="NSMutableArray" id="pRK-4D-CR0"/>
+                        <outletCollection property="resultCards" destination="c10-tR-EtF" collectionClass="NSMutableArray" id="kwv-36-OP8"/>
+                        <outletCollection property="resultCards" destination="lzZ-Au-SYj" collectionClass="NSMutableArray" id="5OJ-NU-A1c"/>
+                        <outletCollection property="playerNameLabel" destination="YbR-VT-zkD" collectionClass="NSMutableArray" id="E31-Mu-tPE"/>
+                        <outletCollection property="playerNameLabel" destination="aaE-fo-FS0" collectionClass="NSMutableArray" id="388-np-m0f"/>
+                        <outletCollection property="playerNameLabel" destination="YJ2-3a-Zrs" collectionClass="NSMutableArray" id="fG4-lB-TNY"/>
+                        <outletCollection property="playerNameLabel" destination="kb3-jg-V7M" collectionClass="NSMutableArray" id="ALb-pD-WGT"/>
+                        <outletCollection property="playerNameTextField" destination="mCe-01-flh" collectionClass="NSMutableArray" id="bX6-3f-TYE"/>
+                        <outletCollection property="playerNameTextField" destination="bDf-sY-Id9" collectionClass="NSMutableArray" id="4YB-AS-dXG"/>
+                        <outletCollection property="playerNameTextField" destination="MQS-ze-7yj" collectionClass="NSMutableArray" id="Bk5-Sh-uVi"/>
+                        <outletCollection property="playerNameTextField" destination="Ls8-tG-ma4" collectionClass="NSMutableArray" id="xeO-d5-x1Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-1295.3846153846152" y="-126.54028436018957"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="10" width="400" height="400"/>
+        <image name="100" width="450" height="237"/>
+        <image name="background" width="390" height="844"/>
+        <image name="card_back" width="273" height="400"/>
+        <image name="minus.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="全抓" width="670" height="333"/>
+        <image name="池底" width="800" height="756"/>
+        <namedColor name="AccentColor">
+            <color red="0.36078431372549019" green="0.23921568627450979" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

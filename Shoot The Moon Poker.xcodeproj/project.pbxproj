@@ -13,6 +13,8 @@
 		0DB4161F2B7F6AF1008C411E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DB4161D2B7F6AF1008C411E /* Main.storyboard */; };
 		0DB416212B7F6AF3008C411E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DB416202B7F6AF3008C411E /* Assets.xcassets */; };
 		0DB416242B7F6AF3008C411E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DB416222B7F6AF3008C411E /* LaunchScreen.storyboard */; };
+		0DB4162C2B85FAF7008C411E /* card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4162B2B85FAF7008C411E /* card.swift */; };
+		0DB4162E2B87198B008C411E /* NaikaiFont-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DB4162D2B87198B008C411E /* NaikaiFont-ExtraLight.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		0DB416202B7F6AF3008C411E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DB416232B7F6AF3008C411E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DB416252B7F6AF3008C411E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DB4162B2B85FAF7008C411E /* card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = card.swift; sourceTree = "<group>"; };
+		0DB4162D2B87198B008C411E /* NaikaiFont-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NaikaiFont-ExtraLight.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +60,11 @@
 		0DB416162B7F6AF1008C411E /* Shoot The Moon Poker */ = {
 			isa = PBXGroup;
 			children = (
+				0DB4162D2B87198B008C411E /* NaikaiFont-ExtraLight.ttf */,
 				0DB416172B7F6AF1008C411E /* AppDelegate.swift */,
 				0DB416192B7F6AF1008C411E /* SceneDelegate.swift */,
 				0DB4161B2B7F6AF1008C411E /* ViewController.swift */,
+				0DB4162B2B85FAF7008C411E /* card.swift */,
 				0DB4161D2B7F6AF1008C411E /* Main.storyboard */,
 				0DB416202B7F6AF3008C411E /* Assets.xcassets */,
 				0DB416222B7F6AF3008C411E /* LaunchScreen.storyboard */,
@@ -127,6 +133,7 @@
 			files = (
 				0DB416242B7F6AF3008C411E /* LaunchScreen.storyboard in Resources */,
 				0DB416212B7F6AF3008C411E /* Assets.xcassets in Resources */,
+				0DB4162E2B87198B008C411E /* NaikaiFont-ExtraLight.ttf in Resources */,
 				0DB4161F2B7F6AF1008C411E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +148,7 @@
 				0DB4161C2B7F6AF1008C411E /* ViewController.swift in Sources */,
 				0DB416182B7F6AF1008C411E /* AppDelegate.swift in Sources */,
 				0DB4161A2B7F6AF1008C411E /* SceneDelegate.swift in Sources */,
+				0DB4162C2B85FAF7008C411E /* card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
