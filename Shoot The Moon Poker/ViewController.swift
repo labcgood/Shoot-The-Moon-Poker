@@ -72,6 +72,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //隱藏沒有用到的玩家
+    func setLabelIsHidden() {
+        for i in 0...3 {
+            if i > playerCount-1 {
+                playerNameLabel[i].isHidden = true
+                playerNameTextField[i].isHidden = true
+            } else {
+                playerNameLabel[i].isHidden = false
+                playerNameTextField[i].isHidden = false
+            }
+        }
+        playerCountLabel.text = "\(playerCount)"
+    }
+    
     //是否可以抽牌
     func canDrawCard() {
         if resultCards[1].isHidden == false && betAmount == 0 {
@@ -79,6 +93,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         } else if resultCards[2].isHidden == false {
             drawCardButton.isEnabled = false
         } else if remainingCards <= 2 && resultCards[0].isHidden == true {
+            drawCardButton.isEnabled = false
+        } else if potAmount == 0 {
             drawCardButton.isEnabled = false
         } else {
             drawCardButton.isEnabled = true
@@ -159,33 +175,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //startView的元件功能
     //減少遊玩人數(最低2人)，並將未用到的輸入框隱藏
     @IBAction func reduceButton(_ sender: Any) {
-        if playerCount >= 3 {
+        if playerCount > 2 {
             playerCount -= 1
         }
-        if playerCount == 3 {
-            playerNameLabel[3].isHidden = true
-            playerNameTextField[3].isHidden = true
-        } else if playerCount == 2 {
-            playerNameLabel[2].isHidden = true
-            playerNameTextField[2].isHidden = true
-        }
-        playerCountLabel.text = "\(playerCount)"
+        setLabelIsHidden()
     }
     
     //增加遊玩人數(最多4人)，並將未用到的輸入框隱藏
     @IBAction func plusButton(_ sender: Any) {
-        if playerCount <= 3 {
+        if playerCount < 4 {
             playerCount += 1
         }
-        if playerCount == 3 {
-            playerNameLabel[2].isHidden = false
-            playerNameTextField[2].isHidden = false
-            
-        } else if playerCount == 4 {
-            playerNameLabel[3].isHidden = false
-            playerNameTextField[3].isHidden = false
-        }
-        playerCountLabel.text = "\(playerCount)"
+        setLabelIsHidden()
     }
     
     //開始遊戲，顯示出原本隱藏的遊戲畫面，因為還未學會撰寫連接Navigation Controller的程式內容，先用這個方法替代，不知道有沒有更好的方式？
@@ -241,7 +242,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //[Button]本局不跟(直接輸掉基本下注金額(10元))
     @IBAction func foldButton(_ sender: Any) {
-        canDrawCard()
+        drawCardButton.isEnabled = false
+        canUseButton(canUse: false)
         players[playerIndex].totalJackpot -= 10
         potAmount += 10
         updateCurrentCumulativeAndPot()
@@ -349,6 +351,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             potAmount = 10 * playerCount
         }
         againButton.isHidden = true
+        canDrawCard()
         updateCurrentCumulativeAndPot()
     }
     
@@ -371,6 +374,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
         betAmountLabel.text = ""
         remainingCardsLabel.text = "0"
     }
-    
 }
 
